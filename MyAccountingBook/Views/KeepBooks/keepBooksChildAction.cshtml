@@ -1,0 +1,67 @@
+﻿@model MyAccountingBook.Models.ViewModels.keepBooksViewModels
+
+@{
+    ViewBag.Title = "KeepBooksChildAction";
+    Layout = null;
+    IEnumerable<SelectListItem> InOut =
+        (IEnumerable<SelectListItem>)ViewData["InOut"];
+}
+
+
+@using (Html.BeginForm())
+{
+    @*@Html.AntiForgeryToken()*@
+    <div class="container body-content">
+        <div class="well">
+            <div class="form-horizontal">
+                <hr />
+                @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                <div class="form-group">
+                    <label class="control-label col-sm-2">
+                        類別：
+                    </label>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(model => model.InOut, InOut, new { @class = "form-control" })                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Amount">
+                        金額：
+                    </label>
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">
+                        日期：
+                    </label>
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">
+                        備註：
+                    </label>
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(model => model.Memo, new { @class = "form-control" })                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-8 col-sm-4">
+                        <input type="submit" value="送出" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

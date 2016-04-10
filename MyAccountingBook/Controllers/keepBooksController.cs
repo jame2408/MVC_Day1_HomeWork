@@ -26,30 +26,30 @@ namespace MyAccountingBook.Controllers
         [ChildActionOnly]
         public ActionResult KeepBooksChildAction()
         {
-            List<SelectListItem> mySelectItemList = new List<SelectListItem>();
+            //List<SelectListItem> mySelectItemList = new List<SelectListItem>();
 
-            mySelectItemList.Add(new SelectListItem()
-            {
-                Text = "請選擇",
-                Value = "0",
-                Selected = true
-            });
+            //mySelectItemList.Add(new SelectListItem()
+            //{
+            //    Text = "請選擇",
+            //    Value = "0",
+            //    Selected = true
+            //});
 
-            mySelectItemList.Add(new SelectListItem()
-            {
-                Text = "1. 支出",
-                Value = "1",
-                Selected = false
-            });
+            //mySelectItemList.Add(new SelectListItem()
+            //{
+            //    Text = "1. 支出",
+            //    Value = "1",
+            //    Selected = false
+            //});
 
-            mySelectItemList.Add(new SelectListItem()
-            {
-                Text = "2. 收入",
-                Value = "2",
-                Selected = false
-            });
+            //mySelectItemList.Add(new SelectListItem()
+            //{
+            //    Text = "2. 收入",
+            //    Value = "2",
+            //    Selected = false
+            //});
 
-            ViewData["InOut"] = mySelectItemList;
+            //ViewData["InOut"] = mySelectItemList;
 
             return View();
         }

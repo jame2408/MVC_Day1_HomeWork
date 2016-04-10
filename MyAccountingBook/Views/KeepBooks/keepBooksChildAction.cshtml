@@ -1,10 +1,11 @@
 ﻿@model MyAccountingBook.Models.ViewModels.keepBooksViewModels
-
+@using MyAccountingBook.Models.ViewModels
 @{
     ViewBag.Title = "KeepBooksChildAction";
     Layout = null;
-    IEnumerable<SelectListItem> InOut =
-        (IEnumerable<SelectListItem>)ViewData["InOut"];
+    //IEnumerable<SelectListItem> InOut =
+    //    (IEnumerable<SelectListItem>)ViewData["InOut"];
+    
 }
 
 
@@ -21,7 +22,11 @@
                         類別：
                     </label>
                     <div class="col-sm-10">
-                        @Html.DropDownListFor(model => model.InOut, InOut, new { @class = "form-control" })                        
+                        @*@Html.DropDownListFor(model => model.InOut, InOut, new { @class = "form-control" })*@                        
+
+                        @*以下兩種寫法為抓取ViewModel中Enum資料當作下拉式選單內容*@
+                        @*@Html.DropDownListFor(moedl => moedl.InOut, Enum.GetValues(typeof(InOutList)).Cast<InOutList>().Select(model => new SelectListItem { Text = model.ToString(), Value = model.ToString() }), new { @class = "form-control" })*@
+                        @Html.DropDownList("InOut", new SelectList(Enum.GetValues(typeof(InOutList))), "請選擇", new { @class = "form-control" })
                     </div>
                 </div>
 

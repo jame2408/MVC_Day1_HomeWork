@@ -2,13 +2,14 @@
 
 @{
     Layout = null;
+    int seqno = 0;
 }
 
     <div class="row">
         <div class="form-horizontal col-md-12">
             <table border="1" class="table table-bordered table-hover">
                 <tr>
-                    <th>@Html.DisplayNameFor(m => m.seqno)</th>
+                    <th>#</th>
                     <th>@Html.DisplayNameFor(m => m.InOut)</th>
                     <th>@Html.DisplayNameFor(m => m.Date)</th>
                     <th>@Html.DisplayNameFor(m => m.Amount)</th>
@@ -16,7 +17,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(m => item.seqno)</td>
+                        <td>@(++seqno)</td>
                         <td>@Html.DisplayFor(m => item.InOut)</td>
                         <td>@Html.DisplayFor(m => item.Date)</td>
                         <td>@Html.DisplayFor(m => item.Amount)</td>

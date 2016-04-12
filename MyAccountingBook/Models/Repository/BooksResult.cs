@@ -15,21 +15,18 @@ namespace MyAccountingBook.Models.Repository
             {
                 new BooksResultViewModels()
                 {
-                seqno = 1,
                 InOut = "支出",
                 Date = "2016-01-01",
                 Amount = "300"
                 },
                 new BooksResultViewModels()
                 {
-                seqno = 2,
                 InOut = "支出",
                 Date = "2016-01-02",
                 Amount = "16,000"
                 },
                 new BooksResultViewModels()
                 {
-                seqno = 3,
                 InOut = "支出",
                 Date = "2016-01-03",
                 Amount = "8,000"

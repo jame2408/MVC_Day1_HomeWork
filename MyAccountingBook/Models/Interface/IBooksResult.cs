@@ -1,4 +1,5 @@
-﻿using MyAccountingBook.Models.ViewModels;
+﻿using MyAccountingBook.Models.Entity;
+using MyAccountingBook.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace MyAccountingBook.Models.Interface
     public interface IBooksResult
     {
         List<BooksResultViewModels> Query();
+        IQueryable<BooksResultViewModels> GetAll();
     }
 }

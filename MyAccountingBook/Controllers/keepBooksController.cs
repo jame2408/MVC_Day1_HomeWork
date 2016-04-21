@@ -56,8 +56,9 @@ namespace MyAccountingBook.Controllers
 
         [ChildActionOnly]
         public ActionResult BooksResultChildAction()
-        {            
-            return View(this.BooksResult.Query());
+        {
+            //return View(this.BooksResult.Query());            
+            return View(this.BooksResult.GetAll());
         }
     }
 }

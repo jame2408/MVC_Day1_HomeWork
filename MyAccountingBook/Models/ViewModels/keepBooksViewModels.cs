@@ -26,8 +26,10 @@ namespace MyAccountingBook.Models.ViewModels
     }
     public enum InOutList
     {
-        支出 = 1,
-        收入 = 2
+        [Display(Name ="支出")]
+        Expenditure = 1,
+        [Display(Name = "收入")]
+        Income = 2
     }
 
 

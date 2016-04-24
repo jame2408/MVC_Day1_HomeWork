@@ -54,6 +54,16 @@ namespace MyAccountingBook.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult KeepBooksChildAction(keepBooksViewModels data)
+        {
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            return View(data);
+        }
+
         [ChildActionOnly]
         public ActionResult BooksResultChildAction()
         {

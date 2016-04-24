@@ -9,13 +9,17 @@ namespace MyAccountingBook.Models.ViewModels
 {
     public class keepBooksViewModels
     {
+        //[Required]
         [DisplayName("類別")]
-        [Range(1, int.MaxValue)]
+        [Range(1, int.MaxValue, ErrorMessage = "請選擇類別")]
         public InOutList InOut { get; set; }
+        [Required]
         [DisplayName("金額")]
-        public string Amount { get; set; }
+        public int Amount { get; set; }
+        [Required]
         [DisplayName("日期")]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
+        [Required]
         [DisplayName("備註")]
         public string Memo { get; set; }
 

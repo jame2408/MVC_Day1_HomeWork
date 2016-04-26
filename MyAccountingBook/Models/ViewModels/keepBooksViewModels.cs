@@ -29,7 +29,7 @@ namespace MyAccountingBook.Models.ViewModels
         public DateTime Date { get; set; }
 
         [DisplayName("備註")]
-        [StringLength(120, ErrorMessage ="{0}不能超過120個字")]
+        [StringLength(100, ErrorMessage ="{0}不能超過100個字")]
         [Required]
         public string Memo { get; set; }
 

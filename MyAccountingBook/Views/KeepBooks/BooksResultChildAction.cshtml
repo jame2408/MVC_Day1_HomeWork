@@ -18,7 +18,7 @@
                 {
                     <tr>
                         <td>@(++seqno)</td>
-                        <td>@Html.DisplayFor(m => item.InOut)</td>
+                        <td>@Html.Raw(ViewBag.InOutColor(item.InOut))</td>
                         <td>@Html.DisplayFor(m => item.Date)</td>
                         <td>@Html.DisplayFor(m => item.Amount)</td>
                     </tr>

@@ -57,7 +57,7 @@ namespace MyAccountingBook.Models.Repository
             {
                 Amount = s.Amounttt.ToString(),
                 Date = s.Dateee.ToString(),
-                InOut = s.Categoryyy == 0 ? "支出" : "收入"
+                InOut = s.Categoryyy.ToString()
             });
             return result;
         }

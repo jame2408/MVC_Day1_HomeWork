@@ -11,5 +11,6 @@ namespace MyAccountingBook.Models.Interface
     {
         List<BooksResultViewModels> Query();
         IQueryable<BooksResultViewModels> GetAll();
+        void Insert(keepBooksViewModels data);
     }
 }

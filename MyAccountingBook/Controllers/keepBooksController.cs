@@ -59,7 +59,8 @@ namespace MyAccountingBook.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View();
+                this.BooksResult.Insert(data);
+                return View("KeepBooksChildAction");
             }
             return View(data);
         }

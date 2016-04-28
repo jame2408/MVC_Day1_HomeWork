@@ -61,5 +61,20 @@ namespace MyAccountingBook.Models.Repository
             });
             return result;
         }
+
+        public void Insert(keepBooksViewModels data)
+        {
+            var InsertAccountBook = new AccountBookModels
+            {
+                Id = Guid.NewGuid(),
+                Amounttt = data.Amount,
+                //因選單編號(1:支出, 2:收入)與資料庫儲存編號(0:支出, 1:收入)不同，故做轉換動作
+                Categoryyy = (int)data.InOut == 1 ? 0 : 1,
+                Dateee = data.Date,
+                Remarkkk = data.Memo
+            };
+            db.AccountBook.Add(InsertAccountBook);
+            db.SaveChanges();
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace MyAccountingBook.Models.ViewModels
         [DisplayName("日期")]
         [Required]
         [DataType(DataType.Date)]
-        [MaxDateIsToday]
+        [MaxDateIsToday(ErrorMessage ="日期不能超過今天")]
         //[DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]        
         public DateTime Date { get; set; }
 

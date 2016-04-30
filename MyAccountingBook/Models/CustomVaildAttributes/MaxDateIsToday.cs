@@ -8,17 +8,27 @@ namespace MyAccountingBook.Models.CustomVaildAttributes
 {
     public class MaxDateIsToday : ValidationAttribute
     {
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        public override bool IsValid(object value)
         {
-            if ((DateTime)value <= Convert.ToDateTime(DateTime.Today.ToShortDateString()))
+            if (value == null)
             {
-                return ValidationResult.Success;
+                return false;
+            }
+            if (value is DateTime)
+            {
+                if ((DateTime)value <= Convert.ToDateTime(DateTime.Today.ToShortDateString()))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return new ValidationResult("日期不能大於今天.");
+                return false;
             }
-            return base.IsValid(value, validationContext);
         }
     }
 }

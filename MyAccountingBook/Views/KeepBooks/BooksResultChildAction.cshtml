@@ -5,6 +5,18 @@
     int seqno = 0;
 }
 
+@helper InOutColor(string InOutType)
+{
+    if (@InOutType == "0")
+    {
+        <span style="color: red;">支出</span>
+    }
+    else
+    {
+        <span style="color: blue;">收入</span>
+    }
+}
+
     <div class="row">
         <div class="form-horizontal col-md-12">
             <table border="1" class="table table-bordered table-hover">
@@ -18,7 +30,7 @@
                 {
                     <tr>
                         <td>@(++seqno)</td>
-                        <td>@Html.Raw(ViewBag.InOutColor(item.InOut))</td>
+                        <td>@InOutColor(item.InOut)</td>
                         <td>@Html.DisplayFor(m => item.Date)</td>
                         <td>@Html.DisplayFor(m => item.Amount)</td>
                     </tr>

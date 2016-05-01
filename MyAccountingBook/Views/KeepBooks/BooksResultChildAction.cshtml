@@ -1,4 +1,7 @@
-﻿@model IEnumerable<MyAccountingBook.Models.ViewModels.BooksResultViewModels>
+﻿@model PagedList.IPagedList<MyAccountingBook.Models.ViewModels.BooksResultViewModels>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 
 @{
     Layout = null;
@@ -22,9 +25,9 @@
             <table border="1" class="table table-bordered table-hover">
                 <tr>
                     <th>#</th>
-                    <th>@Html.DisplayNameFor(m => m.InOut)</th>
-                    <th>@Html.DisplayNameFor(m => m.Date)</th>
-                    <th>@Html.DisplayNameFor(m => m.Amount)</th>
+                    <th>@Html.DisplayNameFor(m => m.FirstOrDefault().InOut)</th>
+                    <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Date)</th>
+                    <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Amount)</th>
                 </tr>
                 @foreach (var item in Model)
                 {
@@ -36,6 +39,9 @@
                     </tr>
                 }
             </table>
+            <br/>
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page}))
         </div>
     </div>
 

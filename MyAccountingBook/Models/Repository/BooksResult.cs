@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using MyAccountingBook.Models.ViewModels;
 using MyAccountingBook.Models.Entity;
+using PagedList;
 
 namespace MyAccountingBook.Models.Repository
 {
@@ -44,7 +45,7 @@ namespace MyAccountingBook.Models.Repository
             };
             return Result;
         }
-        public IQueryable<BooksResultViewModels> GetAll()
+        public IPagedList<BooksResultViewModels> GetAll(int PageNumber, int PageSize)
         {
             //var result = from Books in db.AccountBook
             //             select new BooksResultViewModels()
@@ -53,13 +54,17 @@ namespace MyAccountingBook.Models.Repository
             //                 Date = Books.Dateee.ToString(),
             //                 InOut = Books.Categoryyy == 0 ? "支出" : "收入"
             //             };
-            var result = db.AccountBook.OrderByDescending(s => s.Dateee).Take(10).Select(s => new BooksResultViewModels()
-            {
-                Amount = s.Amounttt.ToString(),
-                Date = s.Dateee.ToString(),
-                InOut = s.Categoryyy.ToString()
-            });
-            return result;
+            var result = db.AccountBook
+                .OrderByDescending(s => s.Dateee)
+                //.Skip((PageNumber - 1) * PageSize)
+                //.Take(PageSize)
+                .Select(s => new BooksResultViewModels()
+                {
+                    Amount = s.Amounttt.ToString(),
+                    Date = s.Dateee.ToString(),
+                    InOut = s.Categoryyy.ToString()
+                });
+            return result.ToPagedList(PageNumber, PageSize);
         }
 
         public void Insert(keepBooksViewModels data)

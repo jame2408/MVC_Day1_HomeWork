@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyAccountingBook.Models.Repository;
 using MyAccountingBook.Models.Interface;
+using PagedList;
 
 namespace MyAccountingBook.Controllers
 {
@@ -66,11 +67,14 @@ namespace MyAccountingBook.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult BooksResultChildAction()
+        public ActionResult BooksResultChildAction(int? page)
         {
             //return View(this.BooksResult.Query());    
 
-            var BooksResult = this.BooksResult.GetAll();
+            int PageSize = 10; //每頁顯示幾筆
+            int PageNumber = (page ?? 1);
+
+            var BooksResult = this.BooksResult.GetAll(PageNumber, PageSize);
             return View(BooksResult);
         }
     }

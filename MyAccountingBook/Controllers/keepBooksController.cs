@@ -7,9 +7,11 @@ using System.Web.Mvc;
 using MyAccountingBook.Models.Repository;
 using MyAccountingBook.Models.Interface;
 using PagedList;
+using MyAccountingBook.Filter;
 
 namespace MyAccountingBook.Controllers
 {
+    [AuthorizePlus]
     public class keepBooksController : Controller
     {
         private IBooksResult BooksResult;
@@ -66,6 +68,7 @@ namespace MyAccountingBook.Controllers
             return View(data);
         }
 
+        [AllowAnonymous]
         [ChildActionOnly]
         public ActionResult BooksResultChildAction(int? page)
         {

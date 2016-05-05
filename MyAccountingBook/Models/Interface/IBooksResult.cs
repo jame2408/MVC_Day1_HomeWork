@@ -15,5 +15,6 @@ namespace MyAccountingBook.Models.Interface
         void Insert(keepBooksViewModels data);
         keepBooksViewModels GetOne(Guid? id);
         void Update(keepBooksViewModels result);
+        void Delete(Guid? Id);
     }
 }

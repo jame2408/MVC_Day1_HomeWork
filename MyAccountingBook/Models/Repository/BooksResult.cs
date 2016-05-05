@@ -108,5 +108,12 @@ namespace MyAccountingBook.Models.Repository
             UpdateAccounting.Remarkkk = result.Memo;
             db.SaveChanges();
         }
+
+        public void Delete(Guid? Id)
+        {
+            var deleteData = db.AccountBook.Where(s => s.Id == Id).SingleOrDefault();
+            db.AccountBook.Remove(deleteData);
+            db.SaveChanges();
+        }
     }
 }

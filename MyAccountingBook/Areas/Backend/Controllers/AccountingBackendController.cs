@@ -39,6 +39,10 @@ namespace MyAccountingBook.Areas.Backend.Controllers
             }
 
             var EditData = this.BooksResult.GetOne(Id);
+            if (EditData == null)
+            {
+                return HttpNotFound();
+            }
             return View(EditData);
         }
 
@@ -59,6 +63,17 @@ namespace MyAccountingBook.Areas.Backend.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        public ActionResult Delete(Guid? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
+            this.BooksResult.Delete(Id);
+            return RedirectToAction("Index");
         }
     }
 }

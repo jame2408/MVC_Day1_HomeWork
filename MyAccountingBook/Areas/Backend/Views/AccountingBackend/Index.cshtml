@@ -27,28 +27,30 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().Date)
-            </th>            
+            </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @ShowCategory.InOutColor(item.InOut)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>            
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |                
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @ShowCategory.InOutColor(item.InOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
+               new { onclick = "return confirm('確定要刪除此筆資料？');" })
+                </td>
+            </tr>
+        }
+
     </table>
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
     @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))

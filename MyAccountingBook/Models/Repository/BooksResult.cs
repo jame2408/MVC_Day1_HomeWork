@@ -60,6 +60,7 @@ namespace MyAccountingBook.Models.Repository
                 //.Take(PageSize)
                 .Select(s => new BooksResultViewModels()
                 {
+                    Id = s.Id,
                     Amount = s.Amounttt.ToString(),
                     Date = s.Dateee.ToString(),
                     InOut = s.Categoryyy.ToString()

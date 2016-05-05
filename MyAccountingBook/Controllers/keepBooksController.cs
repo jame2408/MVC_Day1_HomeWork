@@ -11,7 +11,7 @@ using MyAccountingBook.Filter;
 
 namespace MyAccountingBook.Controllers
 {
-    [AuthorizePlus]
+    [Authorize]
     public class keepBooksController : Controller
     {
         private IBooksResult BooksResult;

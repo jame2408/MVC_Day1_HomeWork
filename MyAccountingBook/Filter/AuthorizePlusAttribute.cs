@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace MyAccountingBook.Filter
 {
@@ -10,7 +11,19 @@ namespace MyAccountingBook.Filter
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            //base.OnAuthorization(filterContext);
+            base.OnAuthorization(filterContext);
+
+            if (!filterContext.RequestContext.HttpContext.User.Identity.Name.Contains("admin@gmail.com"))
+            {
+                filterContext.Result = new RedirectToRouteResult(
+                new RouteValueDictionary
+                                   {
+                                       { "action", "Index" },
+                                       { "controller", "keepBooks" },
+                                       { "area", "" }
+                                   });
+                return;
+            }
 
             //支援 MVC5 新增的 AllowAnonymous
             var skipAuthorization =

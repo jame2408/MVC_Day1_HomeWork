@@ -12,7 +12,7 @@ using System.Net;
 
 namespace MyAccountingBook.Areas.Backend.Controllers
 {
-    [Authorize(Users ="admin@gmail.com")]
+    [AuthorizePlusAttribute(Users ="admin@gmail.com")]
     public class AccountingBackendController : Controller
     {
         private IBooksResult BooksResult;

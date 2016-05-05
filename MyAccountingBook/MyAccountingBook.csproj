@@ -216,6 +216,9 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Backend\Views\web.config" />
     <Content Include="Areas\Backend\Views\AccountingBackend\Index.cshtml" />
+    <Content Include="Areas\Backend\Views\AccountingBackend\Edit.cshtml" />
+    <Content Include="Areas\Backend\Views\AccountingBackend\Create.cshtml" />
+    <Content Include="App_Code\ShowCategory.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

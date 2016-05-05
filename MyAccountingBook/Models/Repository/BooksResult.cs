@@ -82,5 +82,31 @@ namespace MyAccountingBook.Models.Repository
             db.AccountBook.Add(InsertAccountBook);
             db.SaveChanges();
         }
+
+        public keepBooksViewModels GetOne(Guid? id)
+        {
+            var GetData = db.AccountBook.Where(s => s.Id == id)
+                .Select(d => new keepBooksViewModels()
+                {
+                    Id = d.Id,
+                    InOut = (InOutList)(d.Categoryyy == 0 ? 1 : 2),
+                    Amount = d.Amounttt,
+                    Date = d.Dateee,
+                    Memo = d.Remarkkk
+                }).SingleOrDefault();
+            return GetData;
+        }
+
+        public void Update(keepBooksViewModels result)
+        {
+            var UpdateAccounting = (from s in db.AccountBook
+                                    where s.Id == result.Id
+                                    select s).SingleOrDefault();
+            UpdateAccounting.Categoryyy = (int)result.InOut == 1 ? 0 : 1;
+            UpdateAccounting.Amounttt = result.Amount;
+            UpdateAccounting.Dateee = result.Date;
+            UpdateAccounting.Remarkkk = result.Memo;
+            db.SaveChanges();
+        }
     }
 }

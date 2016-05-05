@@ -13,5 +13,7 @@ namespace MyAccountingBook.Models.Interface
         List<BooksResultViewModels> Query();
         IPagedList<BooksResultViewModels> GetAll(int PageNumber, int PageSize);
         void Insert(keepBooksViewModels data);
+        keepBooksViewModels GetOne(Guid? id);
+        void Update(keepBooksViewModels result);
     }
 }

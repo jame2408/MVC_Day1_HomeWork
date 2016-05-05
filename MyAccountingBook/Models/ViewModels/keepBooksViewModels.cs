@@ -10,6 +10,8 @@ namespace MyAccountingBook.Models.ViewModels
 {
     public class keepBooksViewModels
     {
+        [Key]
+        public Guid Id { get; set; }
         //[Required]
         [DisplayName("類別")]
         [Range(1, int.MaxValue, ErrorMessage = "請選擇{0}")]

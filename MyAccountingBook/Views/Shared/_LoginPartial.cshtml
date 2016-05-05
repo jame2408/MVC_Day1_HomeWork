@@ -1,16 +1,34 @@
 ﻿@using Microsoft.AspNet.Identity
+@functions
+{
+    public bool IsAdmin()
+    {
+        //Todo:先用寫死寫法，未來再改成去DB確認是否為admin權限
+        if (User.Identity.GetUserName() == "admin@gmail.com")
+        {
+            return true;
+        }
+        return false;
+    }
+}
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li>
+                @if (IsAdmin())
+                {
+                    @Html.ActionLink("Backend", "Index", "AccountingBackend", new { area = "Backend" }, new { @class = "navbar-brand" })
+                }
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
+        </ul>
     }
 }
 else

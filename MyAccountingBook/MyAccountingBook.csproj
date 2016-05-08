@@ -191,6 +191,7 @@
     <Compile Include="Models\CustomVaildAttributes\MaxDateIsToday.cs" />
     <Compile Include="Models\Entity\AccountBookModels.cs" />
     <Compile Include="Models\Entity\AccountBookContext.cs" />
+    <Compile Include="Models\Enum\InOutList.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Interface\IBooksResult.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

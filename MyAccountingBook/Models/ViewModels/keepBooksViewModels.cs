@@ -1,4 +1,5 @@
 ﻿using MyAccountingBook.Models.CustomVaildAttributes;
+using MyAccountingBook.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,14 +36,5 @@ namespace MyAccountingBook.Models.ViewModels
         [Required]
         public string Memo { get; set; }
 
-    }
-    public enum InOutList
-    {
-        [Display(Name ="支出")]
-        Expenditure = 1,
-        [Display(Name = "收入")]
-        Income = 2
-    }
-
-
+    }    
 }

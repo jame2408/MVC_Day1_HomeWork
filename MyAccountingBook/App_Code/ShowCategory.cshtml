@@ -1,6 +1,8 @@
-﻿@helper InOutColor(string InOutType)
+﻿@using MyAccountingBook.Models.Enum;
+
+@helper InOutColor(string InOutType)
 {
-if (@InOutType == "0")
+if (@InOutType == ((int)InOutList.Expenditure).ToString())
 {
         <span style="color: red;">支出</span>
 }

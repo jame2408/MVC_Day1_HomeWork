@@ -6,6 +6,7 @@ using System.Web;
 using MyAccountingBook.Models.ViewModels;
 using MyAccountingBook.Models.Entity;
 using PagedList;
+using MyAccountingBook.Models.Enum;
 
 namespace MyAccountingBook.Models.Repository
 {

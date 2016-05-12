@@ -2,12 +2,15 @@
 
 @helper InOutColor(string InOutType)
 {
-if (@InOutType == ((int)InOutList.Expenditure).ToString())
-{
+//因Enum中，支出編號為1，收入編號為2。但DB中支出編號為0，收入編號為1。
+var ChangeCode = ((int)InOutList.Expenditure) == 1 ? "0" : "1";
+
+    if (@InOutType == ChangeCode)
+    {
         <span style="color: red;">支出</span>
-}
-else
-{
+    }
+    else
+    {
         <span style="color: blue;">收入</span>
-}
+    }
 }

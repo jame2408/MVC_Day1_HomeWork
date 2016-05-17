@@ -13,6 +13,14 @@ namespace MyAccountingBook
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.LowercaseUrls = true;
+
+            routes.MapRoute(
+                name: "skilltree",
+                url: "skilltree/{controller}/{action}/{id}",
+                defaults: new { controller = "KeepBooks", action = "Index", id = UrlParameter.Optional }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

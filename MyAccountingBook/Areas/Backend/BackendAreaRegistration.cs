@@ -14,9 +14,11 @@ namespace MyAccountingBook.Areas.Backend
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+            context.Routes.LowercaseUrls = true;
+            
             context.MapRoute(
                 "Backend_default",
-                "Backend/{controller}/{action}/{id}",
+                "skilltree/Backend/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

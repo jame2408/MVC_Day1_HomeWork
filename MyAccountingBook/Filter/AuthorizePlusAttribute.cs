@@ -13,7 +13,8 @@ namespace MyAccountingBook.Filter
         {
             base.OnAuthorization(filterContext);
 
-            if (!filterContext.RequestContext.HttpContext.User.Identity.Name.Contains("admin@gmail.com"))
+            //將Contains改成==，防止類似帳號可以登入
+            if (!(filterContext.RequestContext.HttpContext.User.Identity.Name == "admin@gmail.com"))
             {
                 filterContext.Result = new RedirectToRouteResult(
                 new RouteValueDictionary

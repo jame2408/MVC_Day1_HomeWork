@@ -12,10 +12,12 @@ namespace MyAccountingBook.Models.ViewModels
         [Key]
         public Guid Id { get; set; }
         [DisplayName("類別")]
-        public string InOut { get; set; }
+        public int InOut { get; set; }
         [DisplayName("日期")]
-        public string Date { get; set; }
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; }
         [DisplayName("金額")]
-        public string Amount { get; set; }
+        public int Amount { get; set; }
     }
 }

@@ -27,21 +27,21 @@ namespace MyAccountingBook.Models.Repository
             {
                 new BooksResultViewModels()
                 {
-                InOut = "支出",
-                Date = "2016-01-01",
-                Amount = "300"
+                InOut = 0,
+                Date = DateTime.Parse("2016-01-01"),
+                Amount = 300
                 },
                 new BooksResultViewModels()
                 {
-                InOut = "支出",
-                Date = "2016-01-02",
-                Amount = "16,000"
+                InOut = 1,
+                Date = DateTime.Parse("2016-01-02"),
+                Amount = 16000
                 },
                 new BooksResultViewModels()
                 {
-                InOut = "支出",
-                Date = "2016-01-03",
-                Amount = "8,000"
+                InOut = 0,
+                Date = DateTime.Parse("2016-01-03"),
+                Amount = 8000
                 }
             };
             return Result;
@@ -62,9 +62,9 @@ namespace MyAccountingBook.Models.Repository
                 .Select(s => new BooksResultViewModels()
                 {
                     Id = s.Id,
-                    Amount = s.Amounttt.ToString(),
-                    Date = s.Dateee.ToString(),
-                    InOut = s.Categoryyy.ToString()
+                    Amount = s.Amounttt,
+                    Date = s.Dateee,
+                    InOut = s.Categoryyy
                 });
             return result.ToPagedList(PageNumber, PageSize);
         }

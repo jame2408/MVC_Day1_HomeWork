@@ -1,9 +1,9 @@
 ﻿@using MyAccountingBook.Models.Enum;
 
-@helper InOutColor(string InOutType)
+@helper InOutColor(int InOutType)
 {
 //因Enum中，支出編號為1，收入編號為2。但DB中支出編號為0，收入編號為1。
-var ChangeCode = ((int)InOutList.Expenditure) == 1 ? "0" : "1";
+var ChangeCode = ((int)InOutList.Expenditure) == 1 ? 0 : 1;
 
     if (@InOutType == ChangeCode)
     {
